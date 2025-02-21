@@ -20,7 +20,10 @@ function App() {
             element={authUser ? <Courses /> : <Navigate to="/signup" />}
           />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/admin" element={<Dashboard />} />
+          <Route
+            path="/admin"
+            element={authUser ? <Dashboard /> : <Navigate to="/signup" />}
+          />
         </Routes>
         <Toaster />
       </div>

@@ -101,7 +101,7 @@ function Dashboard() {
             required
           />
           <input
-            type="number"
+            type="text"
             placeholder="Price"
             value={formData.price}
             onChange={(e) => setFormData({...formData, price: e.target.value})}
@@ -153,7 +153,7 @@ function Dashboard() {
               <tr key={book._id} className="border-b">
                 <td className="px-6 py-4">{book.name}</td>
                 <td className="px-6 py-4">{book.description}</td>
-                <td className="px-6 py-4">${book.price}</td>
+                <td className="px-6 py-4">{book.price === "Free" ? "Free" : <div>${book.price}</div>}</td>
                 <td className="px-6 py-4">{book.category}</td>
                 <td className="px-6 py-4">
                   <button

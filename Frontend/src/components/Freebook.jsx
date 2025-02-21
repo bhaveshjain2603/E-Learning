@@ -14,7 +14,7 @@ function Freebook() {
     const getBook = async () => {
       try {
         const res = await axios.get("http://localhost:4001/book");
-        const data = res.data.filter((data) => data.category === "Free");
+        const data = res.data.filter((data) => data.price === "Free")
         setBook(data);
       } catch (error) {
         console.error("Error fetching books:", error);
@@ -61,9 +61,7 @@ function Freebook() {
     ],
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-  if (book.length === 0) return <div>No free books available</div>;
+  if (book.length === 0) return <div className="text-center text-2xl">No free books available</div>;
 
   return (
     <>
